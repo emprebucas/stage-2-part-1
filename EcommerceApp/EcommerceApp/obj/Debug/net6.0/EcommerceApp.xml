@@ -1,0 +1,1029 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EcommerceApp</name>
+    </assembly>
+    <members>
+        <member name="T:EcommerceApp.AddCustomHeaderParameter">
+            <summary>
+            AddCustomHeaderParameter add a custom header parameter to the Swagger documentation for API operations.
+            </summary>
+        </member>
+        <member name="M:EcommerceApp.AddCustomHeaderParameter.Apply(Microsoft.OpenApi.Models.OpenApiOperation,Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext)">
+            <summary>
+            The `Apply` method is the implementation of the interface method and is 
+            called by Swagger during the generation of the API documentation.
+            </summary>
+            <param name="operation"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:EcommerceApp.BasicAuthenticationHandler">
+            <summary>
+            BasicAuthenticationHandler is an authentication handler.
+            </summary>
+        </member>
+        <member name="M:EcommerceApp.BasicAuthenticationHandler.#ctor(Microsoft.Extensions.Options.IOptionsMonitor{Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions},Microsoft.Extensions.Logging.ILoggerFactory,System.Text.Encodings.Web.UrlEncoder,Microsoft.AspNetCore.Authentication.ISystemClock,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            BasicAuthenticationHandler constructor which takes in various dependencies 
+            such as options, logger, encoder, clock, and configuration.
+            </summary>
+            <param name="options"></param>
+            <param name="logger"></param>
+            <param name="encoder"></param>
+            <param name="clock"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:EcommerceApp.BasicAuthenticationHandler.HandleAuthenticateAsync">
+            <summary>
+            AuthenticateResult implements the authentication logic. 
+            This method is responsible for authenticating the user based on the provided headers.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EcommerceApp.CommandHandlers.CartItemCommandHandler">
+            <summary>
+            CartItemCommandHandler handles the `AddCartItemCommand`, `UpdateCartItemCommand`, and `DeleteCartItemCommand` commands.
+            </summary>
+        </member>
+        <member name="M:EcommerceApp.CommandHandlers.CartItemCommandHandler.#ctor(EcommerceApp.Interfaces.ICartItemRepository,AutoMapper.IMapper)">
+            <summary>
+            The constructor takes the `ICartItemRepository` and `IMapper`.
+            `ICartItemRepository`: an interface that represents the Cart Item repository responsible for accessing cart item related data.
+            `IMapper`:  an interface from AutoMapper for object mapping.
+            </summary>
+            <param name="cartItemRepository"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:EcommerceApp.CommandHandlers.CartItemCommandHandler.Handle(EcommerceApp.Commands.AddCartItemCommand,System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EcommerceApp.CommandHandlers.CartItemCommandHandler.Handle(EcommerceApp.Commands.UpdateCartItemCommand,System.Threading.CancellationToken)">
+            <summary>
+            The `Handle` method uses an instance of the mapper interface to map `CartItemDto` User from the command to a `CartItemModel` object.
+            The `Handle` method uses an instance of the cart item interface to call `UpdateCartItemAsync` and pass the mapped User from the command.
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EcommerceApp.CommandHandlers.CartItemCommandHandler.Handle(EcommerceApp.Commands.DeleteCartItemCommand,System.Threading.CancellationToken)">
+            <summary>
+            The `Handle` method uses an instance of the cart item interface to call `DeleteCartItemAsync` and pass the `CartItemId` from the command.
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EcommerceApp.CommandHandlers.OrderCommandHandler">
+            <summary>
+            OrderCommandHandler handles the `UpdateOrderCommand`, `CheckoutOrderCommand`, and `DeleteOrderCommand` commands.
+            </summary>
+        </member>
+        <member name="M:EcommerceApp.CommandHandlers.OrderCommandHandler.#ctor(EcommerceApp.Interfaces.IOrderRepository,AutoMapper.IMapper)">
+            <summary>
+            The constructor takes the `IOrderRepository` and `IMapper`.
+            `IOrderRepository`: an interface that represents the Order repository responsible for accessing order related data.
+            `IMapper`:  an interface from AutoMapper for object mapping.
+            </summary>
+            <param name="orderRepository"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:EcommerceApp.CommandHandlers.OrderCommandHandler.Handle(EcommerceApp.Commands.UpdateOrderCommand,System.Threading.CancellationToken)">
+            <summary>
+            The `Handle` method uses an instance of the mapper interface to map `OrderDto` User from the command to a `OrderModel` object.
+            The `Handle` method uses an instance of the order interface to call `UpdateOrderAsync` and pass the mapped Order from the command.
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EcommerceApp.CommandHandlers.OrderCommandHandler.Handle(EcommerceApp.Commands.CheckoutOrderCommand,System.Threading.CancellationToken)">
+            <summary>
+            The `Handle` method uses an instance of the mapper interface to map `OrderDto` User from the command to a `OrderModel` object.
+            The `Handle` method uses an instance of the order interface to call `CheckoutOrderAsync` and pass the mapped Order from the command.
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EcommerceApp.CommandHandlers.OrderCommandHandler.Handle(EcommerceApp.Commands.DeleteOrderCommand,System.Threading.CancellationToken)">
+            <summary>
+            The `Handle` method uses an instance of the order interface to call `DeleteOrderAsync` and pass the `OrderId` from the command.
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EcommerceApp.CommandHandlers.UserCommandHandler">
+            <summary>
+            UserCommandHandler handles the `AddUserCommand` command and adds a user to a repository.
+            </summary>
+        </member>
+        <member name="M:EcommerceApp.CommandHandlers.UserCommandHandler.#ctor(EcommerceApp.Interfaces.IUserRepository,AutoMapper.IMapper)">
+            <summary>
+            The constructor takes the `IUserRepository` and `IMapper`.
+            `IUserRepositroy`: an interface that represents the User repository responsible for accessing user related data.
+            `IMapper`:  an interface from AutoMapper for object mapping.
+            </summary>
+            <param name="userRepository"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:EcommerceApp.CommandHandlers.UserCommandHandler.Handle(EcommerceApp.Commands.AddUserCommand,System.Threading.CancellationToken)">
+            <summary>
+            The `Handle` method uses an instance of the mapper interface to map `UserDto` User from the command to a `UserModel` object.
+            The `Handle` method uses an instance of the user interface to call `AddUserAsync` and pass the mapped User from the command.
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EcommerceApp.Commands.AddCartItemCommand">
+            <summary>
+            AddCartItemCommand is used to request the addition of a cart item.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.Commands.AddCartItemCommand.CartItem">
+            <summary>
+            Property `CartItem` of type `CartItemDto` which contains information about the cart item to be added.
+            </summary>
+        </member>
+        <member name="T:EcommerceApp.Commands.UpdateCartItemCommand">
+            <summary>
+            UpdateCartItemCommand is used to request an update to a cart item.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.Commands.UpdateCartItemCommand.CartItem">
+            <summary>
+            Property `CartItem` of type `CartItemDto` which contains updated information for the cart item.
+            </summary>
+        </member>
+        <member name="T:EcommerceApp.Commands.DeleteCartItemCommand">
+            <summary>
+            DeleteCartItemCommand is used to request the deletion of a cart item.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.Commands.DeleteCartItemCommand.CartItemId">
+            <summary>
+            Property `CartItemId` of type `Guid` which represents the unique identifier of the cart item to be deleted.
+            </summary>
+        </member>
+        <member name="T:EcommerceApp.Commands.UpdateOrderCommand">
+            <summary>
+            UpdateOrderCommand is used to request an update to an order.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.Commands.UpdateOrderCommand.Order">
+            <summary>
+            Property `Order` of type `OrderDto` which contains updated information for the order.
+            </summary>
+        </member>
+        <member name="T:EcommerceApp.Commands.CheckoutOrderCommand">
+            <summary>
+            CheckoutOrderCommand is used to request the checkout of an order.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.Commands.CheckoutOrderCommand.Order">
+            <summary>
+            Property `Order` of type `OrderDto` which contains the order information to be checked out.
+            </summary>
+        </member>
+        <member name="T:EcommerceApp.Commands.DeleteOrderCommand">
+            <summary>
+            DeleteOrderCommand is used to request the deletion of an order.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.Commands.DeleteOrderCommand.OrderId">
+            <summary>
+            Property `OrderId` of type `Guid` which represents the unique identifier of the order to be deleted.
+            </summary>
+        </member>
+        <member name="T:EcommerceApp.Commands.AddUserCommand">
+            <summary>
+            AddUserCommand is used to request the addition of a user.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.Commands.AddUserCommand.User">
+            <summary>
+            Property `User` of type `UserDto` which contains information about the user to be added.
+            </summary>
+        </member>
+        <member name="T:EcommerceApp.Controllers.Cart_ItemsController">
+            <summary>
+            Cart_ItemsController handles cart item-related operations. 
+            It uses the MediatR library for handling commands and queries.
+            </summary>
+        </member>
+        <member name="M:EcommerceApp.Controllers.Cart_ItemsController.#ctor(MediatR.IMediator)">
+            <summary>
+            The constructor takes `IMediator` which allows the controller to use MediatR for handling commands and queries.
+            </summary>
+            <param name="mediator"></param>
+        </member>
+        <member name="M:EcommerceApp.Controllers.Cart_ItemsController.GetAllCartItems">
+            <summary>
+            HTTP GET endpoint that retrieves all the cart items of a pending order.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EcommerceApp.Controllers.Cart_ItemsController.AddCartItem(EcommerceApp.DTOs.CartItemDto)">
+            <summary>
+            HTTP POST endpoint for adding a new cart item.
+            </summary>
+            <param name="cartItemDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EcommerceApp.Controllers.Cart_ItemsController.UpdateCartItem(EcommerceApp.DTOs.CartItemDto)">
+            <summary>
+            HTTP PUT endpoint for updating a cart item.
+            </summary>
+            <param name="cartItemDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EcommerceApp.Controllers.Cart_ItemsController.DeleteCartItem(System.Guid)">
+            <summary>
+            HTTP DELETE endpoint for deleting a cart item by its cartItemId.
+            </summary>
+            <param name="cartItemId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EcommerceApp.Controllers.CheckoutController">
+            <summary>
+            CheckoutController handles the checkout operation. 
+            It uses the MediatR library for handling commands and queries.
+            </summary>
+        </member>
+        <member name="M:EcommerceApp.Controllers.CheckoutController.#ctor(MediatR.IMediator)">
+            <summary>
+            The constructor takes `IMediator` which allows the controller to use MediatR for handling commands and queries.
+            </summary>
+            <param name="mediator"></param>
+        </member>
+        <member name="M:EcommerceApp.Controllers.CheckoutController.CheckoutOrder(EcommerceApp.DTOs.OrderDto)">
+            <summary>
+            HTTP POST endpoint for checking out an order.
+            </summary>
+            <param name="orderDto"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EcommerceApp.Controllers.OrdersController">
+            <summary>
+            OrdersController handles order-related operations. 
+            It uses the MediatR library for handling commands and queries.
+            </summary>
+        </member>
+        <member name="M:EcommerceApp.Controllers.OrdersController.#ctor(MediatR.IMediator)">
+            <summary>
+            The constructor takes `IMediator` which allows the controller to use MediatR for handling commands and queries.
+            </summary>
+            <param name="mediator"></param>
+        </member>
+        <member name="M:EcommerceApp.Controllers.OrdersController.GetAllOrders">
+            <summary>
+            HTTP GET endpoint that retrieves all the orders of a user.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EcommerceApp.Controllers.OrdersController.GetOrderById(System.Guid)">
+            <summary>
+            HTTP GET endpoint that retrieves an order by its orderId.
+            </summary>
+            <param name="orderId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EcommerceApp.Controllers.OrdersController.UpdateOrder(EcommerceApp.DTOs.OrderDto)">
+            <summary>
+            HTTP PUT endpoint for updating an order.
+            </summary>
+            <param name="orderDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EcommerceApp.Controllers.OrdersController.DeleteOrder(System.Guid)">
+            <summary>
+            HTTP DELETE endpoint for deleting an order by its orderId.
+            </summary>
+            <param name="orderId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EcommerceApp.Controllers.UsersController">
+            <summary>
+            UsersController handles user-related operations. 
+            It uses the MediatR library for handling commands and queries.
+            </summary>
+        </member>
+        <member name="M:EcommerceApp.Controllers.UsersController.#ctor(MediatR.IMediator)">
+            <summary>
+            The constructor takes `IMediator` which allows the controller to use MediatR for handling commands and queries.
+            </summary>
+            <param name="mediator"></param>
+        </member>
+        <member name="M:EcommerceApp.Controllers.UsersController.GetUserById(System.Guid)">
+            <summary>
+            HTTP GET endpoint that retrieves a user by their userId.
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EcommerceApp.Controllers.UsersController.AddUser(EcommerceApp.DTOs.UserDto)">
+            <summary>
+            HTTP POST endpoint for adding a new user.
+            </summary>
+            <param name="userDto"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EcommerceApp.Data.ECommerceDbContext">
+            <summary>
+            A database context for the e-Commerce website that
+            provides access to the Orders, CartItems, and Users tables.
+            </summary>
+        </member>
+        <member name="M:EcommerceApp.Data.ECommerceDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{EcommerceApp.Data.ECommerceDbContext})">
+            <summary>
+            Constructor that configure various options for the database context, 
+            such as the connection string and database provider.
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="P:EcommerceApp.Data.ECommerceDbContext.Orders">
+            <summary>
+            Represents the Orders table in the database.
+            Provides a collection of orders from the Orders table that can be queried and manipulated in the database.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.Data.ECommerceDbContext.CartItems">
+            <summary>
+            Represents the CartItems table in the database.
+            Provides a collection of cart items from the CartItems table that can be queried and manipulated in the database.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.Data.ECommerceDbContext.Users">
+            <summary>
+            Represents the Users table in the database.
+            Provides a collection of users from the Users table that can be queried and manipulated in the database.
+            </summary>
+        </member>
+        <member name="T:EcommerceApp.DTOs.CartItemDto">
+            <summary>
+            CartItemDto represents a Data Transfer Object (DTO) for a cart item. 
+            It contains properties that are used for transferring cart item data between different layers or components of the application.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.DTOs.CartItemDto.CartItemId">
+            <summary>
+            CartItemId represents the unique identifier for the cart item.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.DTOs.CartItemDto.OrderId">
+            <summary>
+            OrderId represents the identifier of the order associated with the cart item.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.DTOs.CartItemDto.UserId">
+            <summary>
+            UserId represents the identifier of the user associated with the cart item.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.DTOs.CartItemDto.Item">
+            <summary>
+            Item represents the name of the cart item.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.DTOs.CartItemDto.Price">
+            <summary>
+            Price represents the price of the cart item.
+            </summary>
+        </member>
+        <member name="T:EcommerceApp.DTOs.OrderDto">
+            <summary>
+            OrderDto represents a Data Transfer Object (DTO) for an order. 
+            It contains properties that are used for transferring order data between different layers or components of the application.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.DTOs.OrderDto.OrderId">
+            <summary>
+            OrderId represents the unique identifier for the order.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.DTOs.OrderDto.UserId">
+            <summary>
+             UserId represents the identifier of the user associated with the order.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.DTOs.OrderDto.Status">
+            <summary>
+            Status represents the status of the order.
+            </summary>
+        </member>
+        <member name="T:EcommerceApp.DTOs.UserDto">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.DTOs.UserDto.UserId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.DTOs.UserDto.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:EcommerceApp.Entities.CartItemEntity">
+            <summary>
+            The CartItemEntity represents a real world cart item and defines the properties and 
+            attributes associated with a cart item, such as the item's ID, the order ID containing the item,
+            the user ID that owns the order containing the item, the item's name and price.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.Entities.CartItemEntity.CartItemId">
+            <summary>
+            The CartItemId, a primary key in GUID.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.Entities.CartItemEntity.OrderId">
+            <summary>
+            Defining the Order entity as a foreign key to 
+            establish the relationship between Order and CartItem.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.Entities.CartItemEntity.UserId">
+            <summary>
+            Defining the User entity as a foreign key to 
+            establish the relationship between User and CartItem.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.Entities.CartItemEntity.Item">
+            <summary>
+            The cart item's name in string.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.Entities.CartItemEntity.Price">
+            <summary>
+            The cart item's price in int.
+            </summary>
+        </member>
+        <member name="T:EcommerceApp.Entities.OrderEntity">
+            <summary>
+            The OrderEntity represents a real world order and defines the properties and 
+            attributes associated with an order, such as the order's ID, the user ID that owns the order,
+            and the order's status.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.Entities.OrderEntity.OrderId">
+            <summary>
+            The OrderId, a primary key in GUID.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.Entities.OrderEntity.UserId">
+            <summary>
+            Defining the User entity as a foreign key to 
+            establish the relationship between User and Order.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.Entities.OrderEntity.Status">
+            <summary>
+            The status of an order which can be Pending, Processed, Cancelled.
+            </summary>
+        </member>
+        <member name="T:EcommerceApp.Entities.OrderStatusEntity">
+            <summary>
+            An enum to define the possible values for the order status
+            which can be Pending, Processed, Cancelled.
+            </summary>
+        </member>
+        <member name="F:EcommerceApp.Entities.OrderStatusEntity.Pending">
+            <summary>
+            Represents the status of an order when it is awaiting processing.
+            </summary>
+        </member>
+        <member name="F:EcommerceApp.Entities.OrderStatusEntity.Processed">
+            <summary>
+            Represents the status of an order when it has been successfully processed.
+            </summary>
+        </member>
+        <member name="F:EcommerceApp.Entities.OrderStatusEntity.Cancelled">
+            <summary>
+            Represents the status of an order when it has been cancelled.
+            </summary>
+        </member>
+        <member name="T:EcommerceApp.Entities.UserEntity">
+            <summary>
+            The UserEntity represents a real world user and defines the properties and 
+            attributes associated with a user, such as the user's ID and name.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.Entities.UserEntity.UserId">
+            <summary>
+            The UserId, a primary key in GUID.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.Entities.UserEntity.Name">
+            <summary>
+            The user's name in string.
+            </summary>
+        </member>
+        <member name="T:EcommerceApp.HttpContextHelper">
+            <summary>
+            HttpContextHelper used to access and retrieve the 'x-user-id' from the HTTP context
+            </summary>
+        </member>
+        <member name="M:EcommerceApp.HttpContextHelper.#ctor(Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            HttpContextHelper constructor.
+            </summary>
+            <param name="httpContextAccessor"></param>
+        </member>
+        <member name="M:EcommerceApp.HttpContextHelper.GetUserId">
+            <summary>
+            The `GetUserId` method is used to retrieve the user ID from the HTTP context. 
+            It returns a `Guid` representing the user ID.
+            </summary>
+            <returns></returns>
+            <exception cref="T:System.UnauthorizedAccessException"></exception>
+        </member>
+        <member name="T:EcommerceApp.Interfaces.ICartItemRepository">
+            <summary>
+            ICartItemRepository defines the contract for the Cart Iten repository.
+            </summary>
+        </member>
+        <member name="M:EcommerceApp.Interfaces.ICartItemRepository.GetAllCartItemsAsync">
+            <summary>
+            GetAllCartItemsAsync is used to retrieve all cart items. 
+            It returns a `Task List CartItemModel` representing the asynchronous operation of retrieving all cart items.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EcommerceApp.Interfaces.ICartItemRepository.AddCartItemAsync(EcommerceApp.Entities.CartItemEntity)">
+            <summary>
+            AddCartItemAsync is used to add a cart item. 
+            It takes a `CartItemModel` object `cartItem` as a parameter, representing the cart item to be added. 
+            The method returns a `Task` representing the asynchronous operation of adding the cart item.
+            </summary>
+            <param name="cartItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EcommerceApp.Interfaces.ICartItemRepository.UpdateCartItemAsync(EcommerceApp.Entities.CartItemEntity)">
+            <summary>
+            UpdateCartItemAsync is used to update a cart item. 
+            It takes a `CartItemModel` object `cartItem` as a parameter, representing the cart item to be updated. 
+            The method returns a `Task` representing the asynchronous operation of updating the cart item.
+            </summary>
+            <param name="cartItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EcommerceApp.Interfaces.ICartItemRepository.DeleteCartItemAsync(System.Guid)">
+            <summary>
+            DeleteCartItemAsync is used to delete a cart item from the repository. 
+            It takes a `Guid` parameter `cartItemId` representing the unique identifier of the cart item to be deleted. 
+            The method returns a `Task` representing the asynchronous operation of deleting the cart item.
+            </summary>
+            <param name="cartItemId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EcommerceApp.Interfaces.IOrderRepository">
+            <summary>
+            IOrderRepository defines the contract for the Order repository.
+            </summary>
+        </member>
+        <member name="M:EcommerceApp.Interfaces.IOrderRepository.GetAllOrdersAsync">
+            <summary>
+            GetAllOrdersAsync is used to retrieve all orders. 
+            It returns a `Task List OrderModel` representing the asynchronous operation of retrieving all orders.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EcommerceApp.Interfaces.IOrderRepository.GetOrderByIdAsync(System.Guid)">
+            <summary>
+            GetOrderByIdAsync is used to retrieve an order by its ID. 
+            It takes a `Guid` parameter `orderId` representing the unique identifier of the order to be retrieved. 
+            The method returns a `Task OrderModel` representing the asynchronous operation of retrieving the order.
+            </summary>
+            <param name="orderId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EcommerceApp.Interfaces.IOrderRepository.UpdateOrderAsync(EcommerceApp.Entities.OrderEntity)">
+            <summary>
+            UpdateOrderAsync is used to update an order. 
+            It takes an `OrderModel` object `order` as a parameter, representing the order to be updated. 
+            The method returns a `Task` representing the asynchronous operation of updating the order.
+            </summary>
+            <param name="order"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EcommerceApp.Interfaces.IOrderRepository.CheckoutOrderAsync(EcommerceApp.Entities.OrderEntity)">
+            <summary>
+            CheckoutOrderAsync is used to perform the checkout process for an order. 
+            It takes an `OrderModel` object `order` as a parameter, representing the order to be checked out. 
+            The method returns a `Task` representing the asynchronous operation of checking out the order.
+            </summary>
+            <param name="order"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EcommerceApp.Interfaces.IOrderRepository.DeleteOrderAsync(System.Guid)">
+            <summary>
+            DeleteOrderAsync is used to delete an order. 
+            It takes a `Guid` parameter `orderId` representing the unique identifier of the order to be deleted. 
+            The method returns a `Task` representing the asynchronous operation of deleting the order.
+            </summary>
+            <param name="orderId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EcommerceApp.Interfaces.IUserRepository">
+            <summary>
+            IUserRepository defines the contract for the User repository.
+            </summary>
+        </member>
+        <member name="M:EcommerceApp.Interfaces.IUserRepository.GetUserByIdAsync(System.Guid)">
+            <summary>
+            GetUserByIdAsync is used to retrieve a user by their ID. 
+            It takes a `Guid` parameter `userId` representing the unique identifier of the user to be retrieved. 
+            The method returns a `Task UserModel` representing the asynchronous operation of retrieving the user.
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EcommerceApp.Interfaces.IUserRepository.AddUserAsync(EcommerceApp.Entities.UserEntity)">
+            <summary>
+            AddUserAsync is used to add a user. 
+            It takes a `UserEntity` object as a parameter, representing the user to be added. 
+            The method returns a `Task` representing the asynchronous operation of adding the user.
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EcommerceApp.Mapping">
+            <summary>
+            The Mapping class is a subclass of AutoMapper's Profile class, which is used to define mapping configurations.
+            </summary>
+        </member>
+        <member name="M:EcommerceApp.Mapping.#ctor">
+            <summary>
+            Entities, models, and DTOs are often mapped to facilitate the transfer and 
+            transformation of data between different layers, components, or systems in an application.
+            </summary>
+        </member>
+        <member name="T:EcommerceApp.Migrations.InitialCreate">
+            <inheritdoc />
+        </member>
+        <member name="M:EcommerceApp.Migrations.InitialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EcommerceApp.Migrations.InitialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EcommerceApp.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:EcommerceApp.Models.CartItemModel">
+            <summary>
+            CartItemModel represents the model for a cart item.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.Models.CartItemModel.CartItemId">
+            <summary>
+            CartItemId represents the unique identifier for the cart item.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.Models.CartItemModel.OrderId">
+            <summary>
+            OrderId represents the foreign key for the associated order.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.Models.CartItemModel.UserId">
+            <summary>
+            UserId represents the foreign key for the associated user.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.Models.CartItemModel.Item">
+            <summary>
+            Item represents the name of the user.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.Models.CartItemModel.Price">
+            <summary>
+            Price represents the price of the user.
+            </summary>
+        </member>
+        <member name="T:EcommerceApp.Models.OrderModel">
+            <summary>
+            UserModel represents the model for an order.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.Models.OrderModel.OrderId">
+            <summary>
+            OrderId represents the unique identifier for the order.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.Models.OrderModel.UserId">
+            <summary>
+            UserId represents the foreign key for the associated user.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.Models.OrderModel.Status">
+            <summary>
+            Status represents the status of the order.
+            </summary>
+        </member>
+        <member name="T:EcommerceApp.Models.OrderStatusModel">
+            <summary>
+            An enum to define the possible values for the order status
+            which can be Pending, Processed, Cancelled.
+            </summary>
+        </member>
+        <member name="F:EcommerceApp.Models.OrderStatusModel.Pending">
+            <summary>
+            Represents the status of an order when it is awaiting processing.
+            </summary>
+        </member>
+        <member name="F:EcommerceApp.Models.OrderStatusModel.Processed">
+            <summary>
+            Represents the status of an order when it has been successfully processed.
+            </summary>
+        </member>
+        <member name="F:EcommerceApp.Models.OrderStatusModel.Cancelled">
+            <summary>
+            Represents the status of an order when it has been cancelled.
+            </summary>
+        </member>
+        <member name="T:EcommerceApp.Models.UserModel">
+            <summary>
+            UserModel represents the model for a user.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.Models.UserModel.UserId">
+            <summary>
+            UserId represents the unique identifier for the user.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.Models.UserModel.Name">
+            <summary>
+            Name represents the name of the user.
+            </summary>
+        </member>
+        <member name="T:EcommerceApp.Program">
+            <summary>
+            The Program class serves as the entry point for the application.
+            </summary>
+        </member>
+        <member name="M:EcommerceApp.Program.Main(System.String[])">
+            <summary>
+            The `Main` method is the starting point of the program. 
+            It calls the `CreateHostBuilder` method to build and run the web application.
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:EcommerceApp.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            The `CreateHostBuilder` method sets up the application's configuration and web host.
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EcommerceApp.Queries.CartItemQuery">
+            <summary>
+            CartItemQuery is used to retrieve a list of cart items.
+            This query expects to return a result of type `List CartItemModel`.
+            </summary>
+        </member>
+        <member name="T:EcommerceApp.Queries.GetAllOrdersQuery">
+            <summary>
+            GetAllOrdersQuery is used to retrieve a list of orders.
+            This query expects to return a result of type `List OrderModel`.
+            </summary>
+        </member>
+        <member name="T:EcommerceApp.Queries.GetOrderByIdQuery">
+            <summary>
+            GetOrderByIdQuery is used to retrieve a order by its ID.
+            This query expects to return a result of type `OrderModel`.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.Queries.GetOrderByIdQuery.OrderId">
+            <summary>
+            Property `OrderId` of type `Guid` which represents the unique identifier of the order that needs to be retrieved.
+            </summary>
+        </member>
+        <member name="T:EcommerceApp.Queries.GetUserByIdQuery">
+            <summary>
+            GetUserByIdQuery is used to retrieve a user by their ID.
+            This query expects to return a result of type `UserModel`.
+            </summary>
+        </member>
+        <member name="P:EcommerceApp.Queries.GetUserByIdQuery.UserId">
+            <summary>
+            Property `UserId` of type `Guid` which represents the unique identifier of the user that needs to be retrieved.
+            </summary>
+        </member>
+        <member name="T:EcommerceApp.QueryHandlers.CartItemQueryHandler">
+            <summary>
+            CartItemQueryHandler handles the `CartItemQuery` query and retrieves a list of cart items by
+            interacting with the Cart Item repository through the interface ICartItemRepository.
+            </summary>
+        </member>
+        <member name="M:EcommerceApp.QueryHandlers.CartItemQueryHandler.#ctor(EcommerceApp.Interfaces.ICartItemRepository)">
+            <summary>
+            The constructor takes the `ICartItemRepository` which is an interface that 
+            represents the Cart Item repository responsible for accessing cart item related data.
+            </summary>
+            <param name="cartItemRepository"></param>
+        </member>
+        <member name="M:EcommerceApp.QueryHandlers.CartItemQueryHandler.Handle(EcommerceApp.Queries.CartItemQuery,System.Threading.CancellationToken)">
+            <summary>
+            The `Handle` method uses an instance of the cart item interface to call `GetAllCartItemsAsync`.
+            It returns a `Task List CartItemModel` which is an asynchronous operation to retrieve a list of cart items.
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EcommerceApp.QueryHandlers.OrderQueryHandler">
+            <summary>
+            OrderQueryHandler handles the `GetAllOrdersQuery` and `GetOrderByIdQuery` queries.
+            </summary>
+        </member>
+        <member name="M:EcommerceApp.QueryHandlers.OrderQueryHandler.#ctor(EcommerceApp.Interfaces.IOrderRepository)">
+            <summary>
+            The constructor takes the `IOrderRepository` which is an interface that 
+            represents the Order repository responsible for accessing order related data.
+            </summary>
+            <param name="orderRepository"></param>
+        </member>
+        <member name="M:EcommerceApp.QueryHandlers.OrderQueryHandler.Handle(EcommerceApp.Queries.GetAllOrdersQuery,System.Threading.CancellationToken)">
+            <summary>
+            The `Handle` method uses an instance of the order interface to call `GetAllOrdersAsync`.
+            It returns a `Task List OrderModel` which is an asynchronous operation to retrieve a list of orders.
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EcommerceApp.QueryHandlers.OrderQueryHandler.Handle(EcommerceApp.Queries.GetOrderByIdQuery,System.Threading.CancellationToken)">
+            <summary>
+            The `Handle` method uses an instance of the order interface to call `GetOrderByIdAsync` and pass the `OrderId` from the query.
+            It returns a `Task Order Model` which is an asynchronous operation to retrieve a order.
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EcommerceApp.QueryHandlers.UserQueryHandler">
+            <summary>
+            UserQueryHandler handles the `GetUserByIdQuery` query and retrieves a user by 
+            interacting with the User repository through the interface IUserRepository.
+            </summary>
+        </member>
+        <member name="M:EcommerceApp.QueryHandlers.UserQueryHandler.#ctor(EcommerceApp.Interfaces.IUserRepository)">
+            <summary>
+            The constructor takes the `IUserRepository` which is an interface that 
+            represents the User repository responsible for accessing user related data.
+            </summary>
+            <param name="userRepository"></param>
+        </member>
+        <member name="M:EcommerceApp.QueryHandlers.UserQueryHandler.Handle(EcommerceApp.Queries.GetUserByIdQuery,System.Threading.CancellationToken)">
+            <summary>
+            The `Handle` method uses an instance of the user interface to call `GetUserByIdAsync` and pass the `UserId` from the query.
+            It returns a `Task User Model` which is an asynchronous operation to retrieve a user.
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EcommerceApp.Repositories.CartItemRepository">
+            <summary>
+            CartItemRepository provides the implementation for retrieving, adding, updating, and deleting cart items.
+            </summary>
+        </member>
+        <member name="M:EcommerceApp.Repositories.CartItemRepository.#ctor(EcommerceApp.Data.ECommerceDbContext,Microsoft.Extensions.Configuration.IConfiguration,EcommerceApp.HttpContextHelper)">
+            <summary>
+            The constructor takes the `ECommerceDbContext`, `IConfiguration`, and `HttpContextHelper` objects.
+            `ECommerceDbContext`: used to interact with the database using Entity Framework Core.
+            `IConfiguration`: used to retrieve the database connection string.
+            `HttpContextHelper`: used to retrieve 'x-user-id' in the request header.
+            </summary>
+            <param name="dbContext"></param>
+            <param name="configuration"></param>
+            <param name="httpContextHelper"></param>
+        </member>
+        <member name="M:EcommerceApp.Repositories.CartItemRepository.GetAllCartItemsAsync">
+            <summary>
+            GetAllCartItemsAsync retrieves all cart items for the current user.
+            It uses Dapper to execute SQL queries to retrieve the pending order for the user and the corresponding cart items.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EcommerceApp.Repositories.CartItemRepository.AddCartItemAsync(EcommerceApp.Entities.CartItemEntity)">
+            <summary>
+            AddCartItemAsync uses Entity Framework Core to add a new cart item.
+            </summary>
+            <param name="cartItem"></param>
+            <returns></returns>
+            <exception cref="T:SendGrid.Helpers.Errors.Model.BadRequestException"></exception>
+        </member>
+        <member name="M:EcommerceApp.Repositories.CartItemRepository.UpdateCartItemAsync(EcommerceApp.Entities.CartItemEntity)">
+            <summary>
+            UpdateCartItemAsync uses Entity Framework Core to update a cart item.
+            </summary>
+            <param name="cartItem"></param>
+            <returns></returns>
+            <exception cref="T:SendGrid.Helpers.Errors.Model.BadRequestException"></exception>
+        </member>
+        <member name="M:EcommerceApp.Repositories.CartItemRepository.DeleteCartItemAsync(System.Guid)">
+            <summary>
+            DeleteCartItemAsync uses Entity Framework Core to delete a cart item.
+            </summary>
+            <param name="cartItemId"></param>
+            <returns></returns>
+            <exception cref="T:SendGrid.Helpers.Errors.Model.BadRequestException"></exception>
+        </member>
+        <member name="T:EcommerceApp.Repositories.OrderRepository">
+            <summary>
+            OrderRepository provides the implementation for retrieving, updating, checking out, and deleting orders.
+            </summary>
+        </member>
+        <member name="M:EcommerceApp.Repositories.OrderRepository.#ctor(EcommerceApp.Data.ECommerceDbContext,Microsoft.Extensions.Configuration.IConfiguration,EcommerceApp.HttpContextHelper)">
+            <summary>
+            The constructor takes the `ECommerceDbContext`, `IConfiguration`, and `HttpContextHelper` objects.
+            `ECommerceDbContext`: used to interact with the database using Entity Framework Core.
+            `IConfiguration`: used to retrieve the datab2ase connection string.
+            `HttpContextHelper`: used to retrieve 'x-user-id' in the request header.
+            </summary>
+            <param name="dbContext"></param>
+            <param name="configuration"></param>
+            <param name="httpContextHelper"></param>
+        </member>
+        <member name="M:EcommerceApp.Repositories.OrderRepository.GetAllOrdersAsync">
+            <summary>
+            GetAllOrdersAsync retrieves all orders for the current user.
+            It uses Dapper to execute SQL query and return the orders.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EcommerceApp.Repositories.OrderRepository.GetOrderByIdAsync(System.Guid)">
+            <summary>
+            GetOrderByIdAsync retrieves an order by their ID from the database. 
+            It uses Dapper to execute the SQL query and returns the retrieved order.
+            </summary>
+            <param name="orderId"></param>
+            <returns></returns>
+            <exception cref="T:SendGrid.Helpers.Errors.Model.BadRequestException"></exception>
+        </member>
+        <member name="M:EcommerceApp.Repositories.OrderRepository.UpdateOrderAsync(EcommerceApp.Entities.OrderEntity)">
+            <summary>
+            UpdateOrderAsync uses Entity Framework Core to update an order.
+            </summary>
+            <param name="order"></param>
+            <returns></returns>
+            <exception cref="T:SendGrid.Helpers.Errors.Model.BadRequestException"></exception>
+        </member>
+        <member name="M:EcommerceApp.Repositories.OrderRepository.CheckoutOrderAsync(EcommerceApp.Entities.OrderEntity)">
+            <summary>
+            CheckoutOrderAsync uses Entity Framework Core to checkout an order.
+            </summary>
+            <param name="order"></param>
+            <returns></returns>
+            <exception cref="T:SendGrid.Helpers.Errors.Model.BadRequestException"></exception>
+        </member>
+        <member name="M:EcommerceApp.Repositories.OrderRepository.DeleteOrderAsync(System.Guid)">
+            <summary>
+            DeleteOrderAsync uses Entity Framework Core to delete an order.
+            </summary>
+            <param name="orderId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EcommerceApp.Repositories.UserRepository">
+            <summary>
+            UserRepository provides the implementation for retrieving and adding users.
+            </summary>
+        </member>
+        <member name="M:EcommerceApp.Repositories.UserRepository.#ctor(EcommerceApp.Data.ECommerceDbContext,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            The constructor takes the `ECommerceDbContext` and `IConfiguration` objects.
+            `ECommerceDbContext`: used to interact with the database using Entity Framework Core.
+            `IConfiguration`: used to retrieve the database connection string.
+            </summary>
+            <param name="dbContext"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:EcommerceApp.Repositories.UserRepository.GetUserByIdAsync(System.Guid)">
+            <summary>
+            GetUserByIdAsync retrieves a user by their ID from the database. 
+            It uses Dapper to execute the SQL query and returns the retrieved user.
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+            <exception cref="T:SendGrid.Helpers.Errors.Model.BadRequestException"></exception>
+        </member>
+        <member name="M:EcommerceApp.Repositories.UserRepository.AddUserAsync(EcommerceApp.Entities.UserEntity)">
+            <summary>
+            AddUserAsync uses Entity Framework Core to add a new user to the database.
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+            <exception cref="T:SendGrid.Helpers.Errors.Model.BadRequestException"></exception>
+        </member>
+    </members>
+</doc>
